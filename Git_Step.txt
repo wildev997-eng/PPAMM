@@ -1,0 +1,35 @@
+The full steps for a new project
+bash
+cd /path/to/new-project-folder
+git init
+git add .
+git commit -m "initial commit"
+
+Then — before git push will work — you need a GitHub repo to push to:
+
+Go to GitHub, create a new repository (different name, e.g. weather-scraper or whatever your project's called).
+Copy its SSH URL from the green "Code" button (same as before).
+Link it:
+bash
+git remote add origin git@github.com:wildev997-eng/your-new-repo-name.git
+git branch -M main
+git push -u origin main
+After that first push, though — you're right
+
+Once the remote is linked (that git remote add + first push -u only needs to happen once per project), every subsequent update really is just:
+
+bash
+git add .
+git commit -m "desc"
+git push
+
+No -u origin main needed again, and no git init needed again either — that's also a one-time-per-project thing.
+
+Quick mental model
+
+Think of it as two different frequencies:
+
+Once per new project: git init → connect to a new GitHub repo → first push -u.
+Every time you make changes after that: add → commit → push.
+
+Does that split — "one-time setup per project" vs. "routine save cycle" — make sense as the two different rhythms here?
